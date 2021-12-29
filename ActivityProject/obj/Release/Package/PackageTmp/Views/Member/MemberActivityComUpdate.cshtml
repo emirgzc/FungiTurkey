@@ -1,0 +1,63 @@
+﻿
+@model EntityLayer.Concrete.ActivityComment
+
+@{
+	ViewBag.Title = "MemberActivityComUpdate";
+	Layout = "~/Views/Shared/MemberLayout.cshtml";
+}
+
+<section class="contact-us" id="contact">
+	<div class="container">
+		<div class="col-12">
+			<div class="title text-center">
+				<h2>Yorum Güncelleme</h2>
+				<p></p>
+				<div class="border"></div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="contact-form col-md-12 ">
+				@using (Html.BeginForm("MemberActivityComUpdate", "Member", FormMethod.Post))
+				{
+					@Html.HiddenFor(x => x.ActvtyComId, new { @class = "form-control" })
+					@Html.HiddenFor(x => x.ActId, new { @class = "form-control" })
+					@Html.HiddenFor(x => x.MemberId, new { @class = "form-control" })
+					<div class="row">
+						<div class="col-md-6 form-group">
+							@Html.Label("Ad")
+							@Html.TextBoxFor(x => x.Name, new { @class = "form-control", @disabled = "@disabled" })
+						</div>
+
+						<div class="col-md-6 form-group">
+							@Html.Label("Soyad")
+							@Html.TextBoxFor(x => x.Surname, new { @class = "form-control", @disabled = "@disabled" })
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-12 form-group">
+							@Html.Label("Mail Adresi")
+							@Html.TextBoxFor(x => x.Email, new { @class = "form-control", @disabled = "@disabled" })
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-12 form-group">
+							@Html.Label("Yorum")
+							@Html.TextAreaFor(x => x.Comment, 5, 20, new { @class = "form-control", @required = "required" })
+						</div>
+					</div>
+
+					<div id="cf-submit">
+						<input type="submit" id="contact-submit"
+							   class="btn btn-transparent" value="Güncelle">
+					</div>
+
+				}
+			</div>
+		</div>
+	</div>
+</section>
+
+@Html.Action("Index", "Footer")
+

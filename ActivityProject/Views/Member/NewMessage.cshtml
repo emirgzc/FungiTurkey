@@ -1,0 +1,63 @@
+﻿
+@model EntityLayer.Concrete.Message
+
+@{
+	ViewBag.Title = "NewMessage";
+	Layout = "~/Views/Shared/MemberLayout.cshtml";
+}
+
+<section class="contact-us" id="contact">
+	<div class="container">
+		<div class="col-12">
+			<div class="title text-center">
+				<h2>Yeni Mesaj</h2>
+				<p></p>
+				<div class="border"></div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="contact-form col-md-12 ">
+				@using (Html.BeginForm("NewMessage", "Member", FormMethod.Post))
+				{
+					<div class="row">
+						<div class="col-md-6 form-group">
+							<label>Gönderen</label>
+							<input type="email" class="form-control" name="SenderMail" value="@ViewBag.emailmem" required="required" disabled="disabled" />
+						</div>
+
+						<div class="col-md-6 form-group">
+							<label>Alıcı</label>
+							<input type="email" class="form-control" name="ReceiverMail" required="required" placeholder="Admine mesaj göndermek için(admin@gmail.com) yazınız." />
+							@Html.ValidationMessageFor(x => x.ReceiverMail, "", new { @style = "color:red" })
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-12 form-group">
+							<label>Konu</label>
+							<input type="text" class="form-control" name="Subject" required="required" />
+							@Html.ValidationMessageFor(x => x.Subject, "", new { @style = "color:red" })
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-12 form-group">
+							<label>Mesaj</label>
+							<textarea class="form-control" name="MessageCont" required="required"></textarea>
+							@Html.ValidationMessageFor(x => x.MessageCont, "", new { @style = "color:red" })
+						</div>
+					</div>
+
+					<div id="cf-submit">
+						<input type="submit" id="contact-submit"
+							   class="btn btn-transparent" value="Gönder">
+					</div>
+
+				}
+			</div>
+		</div>
+	</div>
+</section>
+
+@Html.Action("Index", "Footer")
+

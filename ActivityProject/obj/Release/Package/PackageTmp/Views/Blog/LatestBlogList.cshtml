@@ -1,0 +1,25 @@
+﻿
+@model IEnumerable<EntityLayer.Concrete.Blog>
+@using ActivityProject.App_Code
+
+<div class="widget-post2 widget2">
+	<h2>Son Bloglar</h2>
+	<ul class="widget-post-list">
+		@foreach (var item in Model)
+		{
+			<li class="widget-post-list-item">
+				<div class="widget-post-image">
+					<a href="/Blog/BlogDetails/@item.BlogId/@Seo.AdresDuzenle(item.Title)">
+						<img src="@item.Image" alt="post-img">
+					</a>
+				</div>
+				<div class="widget-post-content">
+					<a href="/Blog/BlogDetails/@item.BlogId/@Seo.AdresDuzenle(item.Title)">
+						<h5>@item.Title</h5>
+					</a>
+					<h6>@item.BlogDate.ToString("d MMMMM yyy")</h6>
+				</div>
+			</li>
+		}
+	</ul>
+</div>

@@ -1,0 +1,45 @@
+﻿
+@model EntityLayer.Concrete.BlogComment
+
+@{
+	ViewBag.Title = "ABlogCommentDetails";
+	Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="row">
+	<div class="col-lg-12">
+		<div class="card">
+			<div class="card-body">
+				<div class="read-content">
+					<div class="media pt-5">
+						<img class="mr-3 rounded-circle" src="~/bingo/images/blog/user.jpg">
+						<div class="media-body">
+							<h5 class="m-b-3">@Html.DisplayFor(x => x.Name) @Html.DisplayFor(x => x.Surname)</h5>
+							<p class="m-b-2">@Model.CommentDate.ToString("d MMMMM yyy")</p>
+						</div>
+
+					</div>
+					<hr>
+					<div class="media mb-4 mt-1">
+						<div class="media-body">
+							<h4><small class="text-muted">Mail Adresi : @Html.DisplayFor(x => x.Email)</small></h4>
+						</div>
+					</div>
+					<p>@Html.DisplayFor(x => x.Comment)</p>
+				</div>
+				<a href="/BlogComment/ABlogCommentDelete/@Model.BlogComId" class="btn btn-danger">Sil</a>
+				@if (Model.Status == true)
+				{
+					<a href="/BlogComment/ABlogCommentDoStatusFalse/@Model.BlogComId" class="btn btn-danger">Pasif Yap</a>
+				}
+				else
+				{
+					<a href="/BlogComment/ABlogCommentDoStatusTrue/@Model.BlogComId" class="btn btn-success">Onayla</a>
+				}
+			</div>
+
+		</div>
+	</div>
+</div>
+
+

@@ -1,0 +1,39 @@
+﻿
+@model IEnumerable<EntityLayer.Concrete.BlogComment>
+
+@{
+	ViewBag.Title = "MemberBlogComList";
+	Layout = "~/Views/Shared/MemberLayout.cshtml";
+}
+
+<section class="posts section">
+	<div class="container">
+		<div class="row">
+			@foreach (var item in Model)
+			{
+				<article class="col-md-4 col-sm-6 col-xs-12 clearfix ">
+					<div class="post-item" style="border:1px solid #d3cbcb; border-radius:20px;">
+						<div class="content">
+							<h3><a href="#">@item.Blog.Title</a></h3>
+							<p style="color:#be5252">Yorum Tarihi : @item.CommentDate.ToString("d MMMMM yyy")</p>
+							<p style="color:#be5252">Yorumunuz : @item.Comment</p>
+							@if (item.Status == true)
+							{
+								<button class="btn btn-success" disabled="disabled">Onaylandı</button>
+							}
+							else
+							{
+								<button class="btn btn-danger">Onay Bekliyor</button>
+							}
+							<a href="/Member/MemberBlogComUpdate/@item.BlogComId" class="btn btn-info">Güncelle</a>
+							<a href="/Member/MemberBlogComDelete/@item.BlogComId" class="btn btn-warning">Sil</a>
+						</div>
+					</div>
+				</article>
+			}
+		</div>
+	</div>
+</section>
+
+@Html.Action("Index", "Footer")
+

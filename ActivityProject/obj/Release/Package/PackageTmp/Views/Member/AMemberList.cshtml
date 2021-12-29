@@ -1,0 +1,46 @@
+﻿
+@model IEnumerable<EntityLayer.Concrete.Member>
+
+@{
+	ViewBag.Title = "AMemberList";
+	Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="page-heading">
+	<section class="section">
+		<div class="card">
+			<div class="card-header text-danger">
+				Toplam Üye Sayısı = @ViewBag.membercountt
+			</div>
+			<div class="card-body table-responsive">
+				<table class="table table-lg" id="table1">
+					<thead>
+						<tr>
+							<th>İsim Soyisim</th>
+							<th>Mail Adresi</th>
+							<th>Telefon Numarası</th>
+							<th>Şehir</th>
+							<th>Meslek</th>
+							<th>Sil</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach (var item in Model)
+						{
+							<tr>
+								<td>@item.Name @item.Surname</td>
+								<td>@item.Email</td>
+								<td>@item.Phone</td>
+								<td>@item.City</td>
+								<td>@item.Job</td>
+								<td><a href="/Member/AMemberDelete/@item.MemberId" class="btn btn-danger">Sil</a></td>
+							</tr>
+						}
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+	</section>
+</div>
+

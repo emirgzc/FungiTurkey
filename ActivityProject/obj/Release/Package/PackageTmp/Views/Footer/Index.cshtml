@@ -1,0 +1,53 @@
+﻿
+@model IEnumerable<EntityLayer.Concrete.Settings>
+
+<footer id="footer" class="bg-one">
+	<div class="top-footer">
+		<div class="container">
+			<div class="row">
+
+				<div class="col-sm-4 col-md-4 col-lg-4">
+					<ul>
+						<li><h3>Site Kısayolları</h3></li>
+						<li><a href="/About/Index/">Hakkımızda</a></li>
+						<li><a href="/Service/Index/">Organizasyonumuz</a></li>
+						<li><a href="/Galery/Index/">Galeri</a></li>
+						<li><a href="/Activity/Index/">Etkinlikler</a></li>
+						<li><a href="/Blog/Index/">Bloglar</a></li>
+					</ul>
+				</div>
+
+				<div class="col-sm-4 col-md-4 col-lg-4">
+					<ul>
+						<li><h3>Üye İşlemleri</h3></li>
+						<li><a href="/MemberLogin/Index/">Üye Giriş</a></li>
+						<li><a href="/MemberLogin/CreateMember/">Üye Kayıt</a></li>
+						<li><a href="/Slider/Index/">Ana Sayfa</a></li>
+					</ul>
+				</div>
+
+				<div class="col-sm-4 col-md-4 col-lg-4">
+					<ul>
+						@foreach (var item in Model)
+						{
+							<li><h3>Sosyal Medya</h3></li>
+							<li><a href="@item.Facebook" target="_blank">Facebook</a></li>
+							<li><a href="@item.Linkedin" target="_blank">Linkedin</a></li>
+							<li><a href="@item.Youtube" target="_blank">Youtube</a></li>
+							<li><a href="@item.Instagram" target="_blank">Instagram</a></li>
+							@*<li><a href="@item.Twitter" target="_blank">Twitter</a></li>*@
+						}
+					</ul>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<div class="footer-bottom">
+		@foreach (var item in Model)
+		{
+			<h5>@item.CopyrightSite</h5>
+			<h6>Tasarım ve Geliştirme <a href="#">@item.DeveloperName</a></h6>
+		}
+	</div>
+</footer>

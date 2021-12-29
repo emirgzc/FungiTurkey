@@ -1,0 +1,35 @@
+﻿
+@model EntityLayer.Concrete.Slider
+
+@{
+	ViewBag.Title = "ANewSlider";
+	Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("ANewSlider", "Slider", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+	<span class="text-danger">(Lütfen 3Mb' dan Yüksek Resim Yükleme Yapmayınız!)</span>
+	<div class="form-group">
+		@Html.Label("Başlık")
+		@Html.TextBoxFor(x => x.Title, new { @class = "form-control", @required = "@required" })
+		@Html.ValidationMessageFor(x => x.Title, "", new { @class = "text-danger" })
+		<br />
+		@Html.Label("İçerik")
+		@Html.TextAreaFor(x => x.Content, 5, 20, new { @class = "form-control", @required = "@required"})
+		@Html.ValidationMessageFor(x => x.Content, "", new { @class = "text-danger" })
+		<br />
+		@Html.Label("Buton Href (Etkinlikler=Activity,Galeri=Galery,Blog=Blog,Oragizasyonlar=Services,Hakkımızda=About,Sponsorlar=Sponsor,İletişim=Contact)")
+		@Html.TextBoxFor(x => x.ButonHref, new { @class = "form-control", @required = "@required" })
+		@Html.ValidationMessageFor(x => x.ButonHref, "", new { @class = "text-danger" })
+		<br />
+		@Html.Label("Buton İsmi")
+		@Html.TextBoxFor(x => x.ButonTitle, new { @class = "form-control", @required = "@required" })
+		@Html.ValidationMessageFor(x => x.ButonTitle, "", new { @class = "text-danger" })
+		<br />
+		@Html.Label("Resim")
+		<input type="file" name="Image" class="form-control" required="">
+		<br />
+		<button class="btn btn-primary">Ekle</button>
+	</div>
+}
+

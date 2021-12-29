@@ -1,0 +1,58 @@
+﻿
+@model EntityLayer.Concrete.Activity
+
+@{
+	ViewBag.Title = "ANewAct";
+	Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("ANewAct", "Activity", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+	<span class="text-danger">(Lütfen 3Mb' dan Yüksek Resim Yükleme Yapmayınız!)</span>
+	<div class="form-group">
+		@Html.Label("Başlık")
+		@Html.TextBoxFor(x => x.Title, new { @class = "form-control", @required = "@required" })
+		@Html.ValidationMessageFor(x => x.Title, "", new { @class = "text-danger" })
+		<br />
+		<div class="form-group">
+			<label>İçerik</label>
+			<textarea class="form-control" id="editorid" required="" name="Content" rows="4"></textarea>
+			@Html.ValidationMessageFor(x => x.Content, "", new { @class = "text-danger" })
+		</div>
+		<br />
+		@Html.Label("Yapımcı")
+		@Html.TextBoxFor(x => x.Director, new { @class = "form-control", @required = "@required" })
+		@Html.ValidationMessageFor(x => x.Director, "", new { @class = "text-danger" })
+		<br />
+		@Html.Label("Kontenjan")
+		@Html.TextBoxFor(x => x.Quota, new { @class = "form-control", @required = "@required" })
+		<br />
+		@Html.Label("Etkinlik Başlama Tarih")
+		@Html.TextBoxFor(x => x.StartDate, new { @class = "form-control", @required = "@required" })
+		<br />
+		@Html.Label("Etkinlik Bitiş Tarih")
+		@Html.TextBoxFor(x => x.FinishDate, new { @class = "form-control", @required = "@required" })
+		@Html.ValidationMessageFor(x => x.FinishDate, "", new { @class = "text-danger" })
+		<br />
+		@Html.Label("Etkinlik Ücreti (Kişi Başı)")
+		@Html.TextBoxFor(x => x.Price, new { @class = "form-control", @required = "@required" })
+		@Html.ValidationMessageFor(x => x.Price, "", new { @class = "text-danger" })
+		<br />
+		@Html.Label("Son Kayıt Tarih")
+		@Html.TextBoxFor(x => x.LastRecordDate, new { @class = "form-control", @required = "@required" })
+		@Html.ValidationMessageFor(x => x.LastRecordDate, "", new { @class = "text-danger" })
+		<br />
+		@Html.Label("Resim")
+		<input type="file" name="Image" class="form-control" required="">
+		<br />
+		<button class="btn btn-primary">Ekle</button>
+	</div>
+}
+
+@section Scripts{
+	<script src="~/mazer/dist/assets/vendors/ckeditor/ckeditor.js"></script>
+	<script>
+		CKEDITOR.replace("editorid")
+	</script>
+}
+

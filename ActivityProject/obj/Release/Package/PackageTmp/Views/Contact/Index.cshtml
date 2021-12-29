@@ -1,0 +1,137 @@
+﻿
+@model IEnumerable<EntityLayer.Concrete.Settings>
+
+@{
+	ViewBag.Title = "Index";
+	Layout = "~/Views/Shared/AnaLayout.cshtml";
+}
+
+@if (TempData["iletisim"] != null)
+{
+	<link href="~/bingo/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" rel="stylesheet" />
+	<script src="~/bingo/plugins/sweetalert2/sweetalert2.min.js"></script>
+
+	<script>
+		Swal.fire("Mesaj Gönderimi Başarılı", "Mesaj Gönderimi Başarı ile Oluşturuldu.", "success");
+	</script>
+}
+
+<section class="single-page-header">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h2>İletişim</h2>
+				<ol class="breadcrumb header-bradcrumb">
+					<li><a href="/Ana/Index/">Ana Sayfa /</a></li>
+					<li class="active">İletişim</li>
+				</ol>
+			</div>
+		</div>
+	</div>
+</section>
+<section class="contact-us" id="contact">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="title text-center">
+					<h2>Bizimle İletişime Geçin</h2>
+					<p></p>
+					<div class="border"></div>
+				</div>
+			</div>
+
+			<div class="contact-details col-md-6 ">
+				<h3>İletişim Bilgileri</h3>
+				@foreach (var item in Model)
+				{
+					<ul class="contact-short-info">
+						<li>
+							<i class="tf-ion-ios-home"></i>
+							<span>@item.Address</span>
+						</li>
+						<li>
+							<i class="tf-ion-android-phone-portrait"></i>
+							<span>Telefon: @item.Phone</span>
+						</li>
+						<li>
+							<i class="tf-ion-android-mail"></i>
+							<span>Mail Adresi: @item.Email</span>
+						</li>
+						<li>
+							<i class="tf-ion-android-globe"></i>
+							<span>Yönetici: @item.DirectorName</span>
+						</li>
+
+					</ul>
+
+					<div class="social-icon">
+						<ul>
+							<li><a href="@item.Facebook"><i class="tf-ion-social-facebook"></i></a></li>
+							@*<li><a href="@item.Twitter"><i class="tf-ion-social-twitter"></i></a></li>*@
+							<li><a href="@item.Instagram"><i class="tf-ion-social-instagram"></i></a></li>
+							<li><a href="@item.Linkedin"><i class="tf-ion-social-linkedin"></i></a></li>
+							<li><a href="@item.Youtube"><i class="tf-ion-social-youtube"></i></a></li>
+						</ul>
+					</div>
+				}
+
+			</div>
+
+			<div class="contact-form col-md-6 ">
+				@using (Html.BeginForm("Index", "Contact", FormMethod.Post))
+				{
+					<div class="row">
+						<div class="col-md-6 form-group">
+							<input type="text" placeholder="Ad"
+								   class="form-control" name="Name" id="name" minlength="2" required="" maxlength="50">
+						</div>
+
+						<div class="col-md-6 form-group">
+							<input type="text" placeholder="Soyad"
+								   class="form-control" name="Surname" id="surname" minlength="2" required="" maxlength="50">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<input type="email" placeholder="Mail Adresi"
+							   class="form-control" name="Email" id="email" required="" maxlength="50">
+					</div>
+
+					<div class="form-group">
+						<input type="text" placeholder="Telefon Numarası"
+							   class="form-control" name="Phone" id="email" required="" maxlength="12">
+					</div>
+
+					<div class="form-group">
+						<input type="text" placeholder="Konu"
+							   class="form-control" name="Subject" id="subject" required="" minlength="3" maxlength="100">
+					</div>
+
+					<div class="form-group">
+						<textarea rows="6" placeholder="Mesajınız"
+								  class="form-control" name="Message"
+								  id="message" minlength="5" maxlength="500" required=""></textarea>
+					</div>
+					<div id="cf-submit">
+						<input type="submit" id="contact-submit"
+							   class="btn btn-transparent" value="Gönder">
+					</div>
+
+				}
+			</div>
+
+		</div>
+	</div>
+</section>
+<section class="map">
+	<div class="col-md-12">
+		@foreach (var item in Model)
+		{
+			<iframe src="@item.Map" style="border:0; width:100%; height:400px;" allowfullscreen="" loading="lazy"></iframe>
+
+		}
+	</div>
+</section>
+
+@Html.Action("Index", "Footer")
+

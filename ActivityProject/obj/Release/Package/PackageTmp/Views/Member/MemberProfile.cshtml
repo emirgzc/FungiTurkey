@@ -1,0 +1,85 @@
+﻿
+@model EntityLayer.Concrete.Member
+
+@{
+	ViewBag.Title = "MemberProfile";
+	Layout = "~/Views/Shared/MemberLayout.cshtml";
+}
+
+<section class="contact-us" id="contact">
+	<div class="container">
+		<div class="col-12">
+			<div class="title text-center">
+				<h2>Kullanıcı Bilgilerim</h2>
+				<p></p>
+				<div class="border"></div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="contact-form col-md-12 ">
+				@using (Html.BeginForm("MemberProfile", "Member", FormMethod.Post))
+				{
+					@Html.HiddenFor(x => x.MemberId, new { @class = "form-control" })
+					<div class="row">
+						<div class="col-md-6 form-group">
+							@Html.Label("Ad")
+							@Html.TextBoxFor(x => x.Name, new { @class = "form-control", @required = "required", @minlength = "2", @maxlength = "15" })
+						</div>
+
+						<div class="col-md-6 form-group">
+							@Html.Label("Soyad")
+							@Html.TextBoxFor(x => x.Surname, new { @class = "form-control", @required = "required", @minlength = "2", @maxlength = "15" })
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-6 form-group">
+							@Html.Label("Mail Adresi")
+							@Html.TextBoxFor(x => x.Email, new { @class = "form-control", @required = "required", @minlength = "9", @maxlength = "20" })
+						</div>
+
+						<div class="col-md-6 form-group">
+							@Html.Label("Telefon Numarası")
+							@Html.TextBoxFor(x => x.Phone, new { @class = "form-control", @required = "required", @minlength = "11", @maxlength = "11", @placeholder = "Telefon Numarası(0 Dahil)" })
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-6">
+							@Html.Label("Şifre")
+							@*@Html.TextBoxFor(x => x.Password, new { @class = "form-control", @required = "required" })*@
+							<input type="password" name="Password" class="form-control" placeholder="Yeni Şifrenizi Giriniz" minlength="3" maxlength="15" />
+						</div>
+
+						<div class="col-md-6">
+							@Html.Label("Yaşadığınız Şehir")
+							@Html.TextBoxFor(x => x.City, new { @class = "form-control", @required = "required", @minlength = "3", @maxlength = "15" })
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-12 form-group mt-2">
+							@Html.Label("Meslek")
+							@Html.TextBoxFor(x => x.Job, new { @class = "form-control", @required = "required", @minlength = "2", @maxlength = "35" })
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-12 form-group mt-2">
+							@Html.Label("Hakkımda")
+							@Html.TextAreaFor(x => x.About, 5, 20, new { @class = "form-control", @required = "required", @minlength = "5", @maxlength = "500" })
+						</div>
+					</div>
+
+					<div id="cf-submit">
+						<input type="submit" id="contact-submit"
+							   class="btn btn-transparent" value="Güncelle">
+					</div>
+
+				}
+			</div>
+		</div>
+	</div>
+</section>
+
+@Html.Action("Index", "Footer")

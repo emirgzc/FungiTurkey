@@ -1,0 +1,27 @@
+﻿
+@model EntityLayer.Concrete.BlogComment
+
+<form action="" method="post" class="comment-form">
+	<div class="row">
+		<input type="hidden" name="BlogId" value=" @ViewBag.blogid" required="">
+		<input type="hidden" name="MemberId" value=" @ViewBag.memid" required="">
+		<input type="hidden" name="CommentDate" value="@DateTime.Now.ToLongTimeString()" required="required" />
+		<div class="col-lg-6 col-md-6">
+			<input type="text" name="Name" class="form-control" value="@ViewBag.memname" disabled="">
+			@Html.ValidationMessageFor(x => x.Name, "", new { @class = "text-danger" })
+		</div>
+		<div class="col-lg-6 col-md-6">
+			<input type="text" name="Surname" class="form-control" value="@ViewBag.memsurname" disabled="">
+			@Html.ValidationMessageFor(x => x.Surname, "", new { @class = "text-danger" })
+		</div>
+		<div class="col-lg-12 col-md-12">
+			<input type="email" name="Email" class="form-control" value="@ViewBag.mememail" disabled="">
+			@Html.ValidationMessageFor(x => x.Email, "", new { @class = "text-danger" })
+		</div>
+		<div class="col-lg-12 col-md-12">
+			<textarea class="form-control" name="Comment" id="msg" rows="3" placeholder="Yorumunuz" required=""></textarea>
+			@Html.ValidationMessageFor(x => x.Comment, "", new { @class = "text-danger" })
+		</div>
+	</div>
+	<button type="submit" value="send" class="btn btn-main">Gönder</button>
+</form>

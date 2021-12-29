@@ -1,0 +1,35 @@
+﻿
+@model EntityLayer.Concrete.Contact
+
+@{
+	ViewBag.Title = "AContactDetails";
+	Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="row">
+	<div class="col-lg-12">
+		<div class="card">
+			<div class="card-body">
+				<div class="read-content">
+					<div class="media pt-5">
+						<div class="media-body">
+							<h5 class="m-b-3">@Html.DisplayFor(x => x.Name) @Html.DisplayFor(x => x.Surname)</h5>
+							<p class="m-b-2">Tarih : @Model.ContactDate.ToString("d MMMMM yyy")</p>
+							<p class="m-b-2">Telefon Numarası : @Model.Phone</p>
+						</div>
+
+					</div>
+					<hr>
+					<div class="media mb-4 mt-1">
+						<div class="media-body">
+							<h4 class="m-0 text-primary">Konu : @Html.DisplayFor(x => x.Subject)</h4><small class="text-muted">Mail Adresi : @Html.DisplayFor(x => x.Email)</small>
+						</div>
+					</div>
+					<p>@Html.DisplayFor(x => x.Message)</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+

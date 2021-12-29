@@ -1,0 +1,63 @@
+﻿
+@using PagedList
+@using PagedList.Mvc
+
+@using EntityLayer.Concrete
+@model PagedList.IPagedList<Blog>
+@using ActivityProject.App_Code
+
+@{
+	ViewBag.Title = "Index";
+	Layout = "~/Views/Shared/AnaLayout.cshtml";
+}
+
+<section class="single-page-header">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h2>Blog ve Paylaşımlar</h2>
+				<ol class="breadcrumb header-bradcrumb">
+					<li><a href="/Slider/Index/">Ana Sayfa /</a></li>
+					<li class="active">Blog ve Paylaşımlar</li>
+				</ol>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="posts section">
+	<div class="container">
+		<div class="row">
+			@foreach (var item in Model)
+			{
+				<article class="col-md-4 col-sm-6 col-xs-12 clearfix ">
+					<div class="post-item">
+						<div class="media-wrapper">
+							<div class="hero-slider" style="border-bottom-left-radius: 40px; border-top-right-radius: 40px;">
+								<div class="slider-item2 th-fullpage hero-area"
+									 style="background-image: url(@item.Image); width: 100%; height: 280px; object-fit: cover;">
+								</div>
+							</div>
+							@*<img src="@item.Image" style="border-bottom-left-radius: 40px; border-top-right-radius: 40px; width: 100%; height: 260px; object-fit: cover;"
+							alt="amazing caves coverimage" class="img-fluid">*@
+						</div>
+
+						<div class="content">
+							<h3><a href="/Blog/BlogDetails/@item.BlogId/@Seo.AdresDuzenle(item.Title)">@item.Title</a></h3>
+							<p class="text-danger">Yayın Tarihi : @item.BlogDate.ToString("d MMMMM yyy")</p>
+							<a class="btn btn-main mr-4" href="/Blog/BlogDetails/@item.BlogId/@Seo.AdresDuzenle(item.Title)">Devamını Oku</a>
+						</div>
+					</div>
+				</article>
+			}
+		</div>
+		@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }), new
+			PagedListRenderOptions
+			{
+				   LiElementClasses = new List<string>
+				   { "page-link" }
+			})
+	</div>
+</section>
+
+@Html.Action("Index", "Footer")

@@ -1,0 +1,20 @@
+﻿
+@model IEnumerable<EntityLayer.Concrete.BlogComment>
+
+<h3>Yorumlar</h3>
+<ul class="comment-list">
+	<!-- comment list -->
+	@foreach (var item in Model)
+	{
+		<li class="comment-list-item">
+			<div class="comment-list-item-image">
+				<img src="~/bingo/images/blog/useravatar.jpg" style="width:65px;height:65px;" alt="comment-img">
+			</div>
+			<div class="comment-list-item-content">
+				<h5>@item.Name @item.Surname</h5>
+				<h6>@item.CommentDate.ToString("d MMMMM yyy")</h6>
+				<p>@item.Comment</p>
+			</div>
+		</li>
+	}
+</ul>

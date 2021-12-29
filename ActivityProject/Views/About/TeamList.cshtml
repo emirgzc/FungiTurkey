@@ -1,0 +1,38 @@
+﻿
+@model IEnumerable<EntityLayer.Concrete.Team>
+
+<section class="team" id="team">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="title text-center ">
+					<h2>Takımımız</h2>
+					<div class="border"></div>
+				</div>
+			</div>
+			@foreach (var item in Model)
+			{
+				<div class="col-md-4 col-sm-6 ">
+					<div class="team-member text-center">
+						<div class="member-photo">
+							<img class="img-fluid" src="@item.Image" alt="Meghna" @*style="width: 100%; height: 270px; object-fit: cover;"*@>
+							<div class="mask">
+								<ul class="clearfix">
+									<li><a href="@item.Facebook"><i class="tf-ion-social-facebook"></i></a></li>
+									<li><a href="@item.Twitter"><i class="tf-ion-social-twitter"></i></a></li>
+									<li><a href="@item.Linkedin"><i class="tf-ion-social-linkedin"></i></a></li>
+									<li><a href="@item.Instagram"><i class="tf-ion-social-instagram"></i></a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="member-content">
+							<h3>@item.Title</h3>
+							<span>@item.Job</span>
+							<p>@item.About</p>
+						</div>
+					</div>
+				</div>
+			}
+		</div>
+	</div>
+</section>

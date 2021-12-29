@@ -1,0 +1,33 @@
+﻿
+@model IEnumerable<EntityLayer.Concrete.Settings>
+
+<ul class="post-content-share list-inline mt-3">
+	@foreach (var item in Model)
+	{
+		<li class="list-inline-item">
+			<a href="@item.Instagram">
+				<i class="tf-ion-social-instagram"></i>
+			</a>
+		</li>
+		<li class="list-inline-item">
+			<a href="@item.Youtube">
+				<i class="tf-ion-social-youtube"></i>
+			</a>
+		</li>
+		<li class="list-inline-item">
+			<a href="@item.Linkedin">
+				<i class="tf-ion-social-linkedin"></i>
+			</a>
+		</li>
+		<li class="list-inline-item">
+			<a href="@item.Facebook">
+				<i class="tf-ion-social-facebook"></i>
+			</a>
+		</li>
+		@*<li class="list-inline-item">
+			<a href="@item.Twitter">
+				<i class="tf-ion-social-twitter"></i>
+			</a>
+		</li>*@
+	}
+</ul>

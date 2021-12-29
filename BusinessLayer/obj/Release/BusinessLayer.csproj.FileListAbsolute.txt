@@ -1,0 +1,17 @@
+C:\Users\muham\source\repos\ActivityProject\BusinessLayer\bin\Release\BusinessLayer.dll
+C:\Users\muham\source\repos\ActivityProject\BusinessLayer\bin\Release\BusinessLayer.pdb
+C:\Users\muham\source\repos\ActivityProject\BusinessLayer\bin\Release\DataAccessLayer.dll
+C:\Users\muham\source\repos\ActivityProject\BusinessLayer\bin\Release\EntityLayer.dll
+C:\Users\muham\source\repos\ActivityProject\BusinessLayer\bin\Release\FluentValidation.dll
+C:\Users\muham\source\repos\ActivityProject\BusinessLayer\bin\Release\EntityFramework.dll
+C:\Users\muham\source\repos\ActivityProject\BusinessLayer\bin\Release\DataAccessLayer.pdb
+C:\Users\muham\source\repos\ActivityProject\BusinessLayer\bin\Release\DataAccessLayer.dll.config
+C:\Users\muham\source\repos\ActivityProject\BusinessLayer\bin\Release\EntityLayer.pdb
+C:\Users\muham\source\repos\ActivityProject\BusinessLayer\bin\Release\EntityLayer.dll.config
+C:\Users\muham\source\repos\ActivityProject\BusinessLayer\bin\Release\FluentValidation.xml
+C:\Users\muham\source\repos\ActivityProject\BusinessLayer\bin\Release\EntityFramework.xml
+C:\Users\muham\source\repos\ActivityProject\BusinessLayer\obj\Release\BusinessLayer.csproj.AssemblyReference.cache
+C:\Users\muham\source\repos\ActivityProject\BusinessLayer\obj\Release\BusinessLayer.csproj.CoreCompileInputs.cache
+C:\Users\muham\source\repos\ActivityProject\BusinessLayer\obj\Release\BusinessLayer.csproj.CopyComplete
+C:\Users\muham\source\repos\ActivityProject\BusinessLayer\obj\Release\BusinessLayer.dll
+C:\Users\muham\source\repos\ActivityProject\BusinessLayer\obj\Release\BusinessLayer.pdb

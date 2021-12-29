@@ -1,0 +1,88 @@
+﻿
+@model EntityLayer.Concrete.Member
+
+@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+	<title>Report Login Form Responsive Widget Template :: W3layouts</title>
+	<!-- Meta tag Keywords -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8" />
+	<meta name="keywords"
+		  content="Report Login Form Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+	<!-- //Meta tag Keywords -->
+	<link href="//fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+	<link rel="shortcut icon" type="image/x-icon" href="~/bingo/images/black1.png" />
+	<!--/Style-CSS -->
+	<link rel="stylesheet" href="~/login2/css/style.css" type="text/css" media="all" />
+	<!--//Style-CSS -->
+
+	<link rel="stylesheet" href="~/login2/css/font-awesome.min.css" type="text/css" media="all">
+
+</head>
+
+<body>
+
+	<!-- form section start -->
+	<section class="w3l-hotair-form">
+		<h1>Üye Kayıt Formu</h1>
+		<div class="container">
+			<!-- /form -->
+			<div class="workinghny-form-grid">
+				<div class="main-hotair">
+					<form action="#" method="post">
+						<div class="content-wthree">
+							<h2>Kayıt Ol</h2>
+							<input type="text" class="text" name="Name" placeholder="İsim" required="" autofocus>
+							@Html.ValidationMessageFor(x => x.Name, "", new { @class = "text-danger" })
+
+							<input type="text" class="text" name="Surname" placeholder="Soyisim" required="" autofocus>
+							@Html.ValidationMessageFor(x => x.Surname, "", new { @class = "text-danger" })
+
+							<input type="email" class="text" name="Email" placeholder="Mail Adresi" required="" autofocus>
+							@Html.ValidationMessageFor(x => x.Email, "", new { @class = "text-danger" })
+
+							<input type="text" class="text" name="Phone" placeholder="Telefon Numarası(Başında 0 İle Beraber Giriniz)" required="" autofocus>
+							@Html.ValidationMessageFor(x => x.Phone, "", new { @class = "text-danger" })
+
+							<input type="text" class="text" name="City" placeholder="Şehir" required="" autofocus>
+							@Html.ValidationMessageFor(x => x.City, "", new { @class = "text-danger" })
+
+							<input type="text" class="text" name="Job" placeholder="Meslek" required="" autofocus>
+							@Html.ValidationMessageFor(x => x.Job, "", new { @class = "text-danger" })
+
+							<input type="password" class="password" name="Password" placeholder="Şifre" required="" autofocus>
+							@Html.ValidationMessageFor(x => x.Password, "", new { @class = "text-danger" })
+							<button class="btn" type="submit">Kayıt Ol</button>
+							@if (ViewBag.eroor != null)
+							{
+								<div class="text-center text-danger" style="margin-bottom:5px; margin-top:15px;">
+									<a class="text-danger" style="color:red;">
+										@ViewBag.eroor
+									</a>
+								</div>
+							}
+							<p class="account"><a href="/MemberLogin/Index/">Giriş Yap</a></p>
+						</div>
+					</form>
+				</div>
+			</div>
+			<!-- //form -->
+		</div>
+		<!-- copyright-->
+		<div class="copyright text-center">
+			<p class="copy-footer-29">
+				2021 Fungi Turkey © | Tüm Hakları Saklıdır | Design by <a href="https://w3layouts.com">W3layouts</a>
+			</p>
+		</div>
+		<!-- //copyright-->
+	</section>
+	<!-- //form section start -->
+</body>
+
+</html>

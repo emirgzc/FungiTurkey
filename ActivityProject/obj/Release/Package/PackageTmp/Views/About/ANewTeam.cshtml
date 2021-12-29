@@ -1,0 +1,47 @@
+﻿
+@model EntityLayer.Concrete.Team
+
+@{
+	ViewBag.Title = "ANewTeam";
+	Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("ANewTeam", "About", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+	<span class="text-danger">(Lütfen 3Mb' dan Yüksek Resim Yükleme Yapmayınız!)</span>
+	<div class="form-group">
+		@Html.Label("İsim Soyisim")
+		@Html.TextBoxFor(x => x.Title, new { @class = "form-control", @required = "@required" })
+		@Html.ValidationMessageFor(x => x.Title, "", new { @class = "text-danger" })
+		<br />
+		@Html.Label("Hakkında")
+		@Html.TextAreaFor(x => x.About, 5, 20, new { @class = "form-control", @required = "@required" })
+		@Html.ValidationMessageFor(x => x.About, "", new { @class = "text-danger" })
+		<br />
+		@Html.Label("Meslek")
+		@Html.TextBoxFor(x => x.Job, new { @class = "form-control", @required = "@required" })
+		@Html.ValidationMessageFor(x => x.Job, "", new { @class = "text-danger" })
+		<br />
+		@Html.Label("Facebook")
+		@Html.TextBoxFor(x => x.Facebook, new { @class = "form-control", @required = "@required" })
+		@Html.ValidationMessageFor(x => x.Facebook, "", new { @class = "text-danger" })
+		<br />
+		@Html.Label("Twitter")
+		@Html.TextBoxFor(x => x.Twitter, new { @class = "form-control", @required = "@required" })
+		@Html.ValidationMessageFor(x => x.Twitter, "", new { @class = "text-danger" })
+		<br />
+		@Html.Label("İnstagram")
+		@Html.TextBoxFor(x => x.Instagram, new { @class = "form-control", @required = "@required" })
+		@Html.ValidationMessageFor(x => x.Instagram, "", new { @class = "text-danger" })
+		<br />
+		@Html.Label("Linkedin")
+		@Html.TextBoxFor(x => x.Linkedin, new { @class = "form-control", @required = "@required" })
+		@Html.ValidationMessageFor(x => x.Linkedin, "", new { @class = "text-danger" })
+		<br />
+		@Html.Label("Resim")
+		<input type="file" name="Image" class="form-control" required="">
+		<br />
+		<button class="btn btn-primary">Ekle</button>
+	</div>
+}
+

@@ -1,0 +1,47 @@
+﻿
+@model IEnumerable<EntityLayer.Concrete.Services>
+
+@{
+	ViewBag.Title = "Index";
+	Layout = "~/Views/Shared/AnaLayout.cshtml";
+}
+
+<section class="single-page-header">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h2>Organizasyonumuz</h2>
+				<ol class="breadcrumb header-bradcrumb">
+					<li><a href="/Slider/Index/">Ana Sayfa /</a></li>
+					<li class="active">Organizasyonumuz</li>
+				</ol>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="services" id="services">
+	<div class="container">
+		<div class="row no-gutters">
+
+			@foreach (var item in Model)
+			{
+				<div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
+					<div class="service-block p-4 text-center">
+						<div class="service-icon text-center">
+							<div class="media-wrapper">
+								<img src="@item.Image" style="border-radius: 15px; width: 100%; height: 260px; object-fit: cover;"
+									 alt="amazing caves coverimage" class="img-fluid mb-4">
+							</div>
+						</div>
+						<h3>@item.Title</h3>
+						<p>@Html.Raw(item.Content)</p>
+					</div>
+				</div>
+			}
+
+		</div> <!-- End row -->
+	</div> <!-- End container -->
+</section>
+
+@Html.Action("Index","Footer")

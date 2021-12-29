@@ -1,0 +1,29 @@
+﻿
+@model IEnumerable<EntityLayer.Concrete.Slider>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AnaLayout.cshtml";
+}
+
+<div class="hero-slider">
+	@foreach (var item in Model)
+	{
+		<div class="slider-item th-fullpage hero-area" style="background-image: url(@item.Image);">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 text-center">
+						<h1 data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">
+							@item.Title
+						</h1>
+						<p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5">
+							@item.Content
+						</p>
+						<a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn btn-main" href="/@item.ButonHref/Index/">@item.ButonTitle</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	}
+</div>
+

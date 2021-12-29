@@ -1,0 +1,98 @@
+﻿
+@model EntityLayer.Concrete.Record
+
+@{
+	ViewBag.Title = "Index";
+	Layout = "~/Views/Shared/AnaLayout.cshtml";
+}
+
+<section class="single-page-header">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h2>Etkinlik Kayıt</h2>
+				<ol class="breadcrumb header-bradcrumb">
+					<li><a href="/Activity/Index/">Etkinlikler /</a></li>
+					<li class="active">Etkinlik Kayıt</li>
+				</ol>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="contact-us" id="contact">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="title text-center">
+					<h2>Etkinlik Kayıt Formu</h2>
+					<p></p>
+					<div class="border"></div>
+				</div>
+			</div>
+
+			<div class="contact-form col-md-12 ">
+				@using (Html.BeginForm("Index", "Record", FormMethod.Post))
+				{
+					<input type="hidden" name="ActId" value="@ViewBag.idact" />
+
+					<div class="row">
+						<div class="col-md-6 form-group">
+							<input type="text" class="form-control" name="Name" value="@ViewBag.mailname" disabled="disabled">
+						</div>
+
+						<div class="col-md-6 form-group">
+							<input type="text" class="form-control" name="Surname" value="@ViewBag.mailsurname" disabled="disabled">
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-6 form-group">
+							<input type="email" class="form-control" name="Email" value="@ViewBag.mailmem" disabled="disabled">
+						</div>
+						<div class="col-md-6 form-group">
+							<input type="number" placeholder="Kişi Sayısı"
+								   class="form-control" name="PeopleNumber" max="20" min="0" id="PeopleNumber" required="">
+							@Html.ValidationMessageFor(x => x.PeopleNumber, "", new { @class = "text-danger" })
+						</div>						
+					</div>
+
+					<div class="row">
+						<div class="col-md-12 form-group">
+							<input type="text" class="form-control" name="Phone" value="@ViewBag.mailphone" disabled="disabled">
+						</div>						
+					</div>
+
+					<div class="form-group">
+						<input type="radio" name="name" required="required">
+						<label><a href="#" data-toggle="modal" data-target="#Modal1">Açık Rıza Metnini</a> Okudum ve Kabul Ediyorum.</label>
+					</div>
+
+					<div id="cf-submit">
+						<input type="submit" id="contact-submit"
+							   class="btn btn-transparent" value="Kayıt Ol">
+					</div>
+
+				}
+			</div>
+
+		</div>
+	</div>
+</section>
+
+<div class="modal" id="Modal1">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h3 class="modal-title">Açık Rıza Metni</h3>
+				<button type="button" class="btn btn-danger tf-ion-android-close" data-dismiss="modal"></button>
+			</div>
+			<div class="modal-body">
+				@Html.Action("RizaMetni", "Record")
+			</div>
+		</div>
+	</div>
+</div>
+
+@Html.Action("Index", "Footer")
+

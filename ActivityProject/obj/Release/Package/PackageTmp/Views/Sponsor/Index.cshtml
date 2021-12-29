@@ -1,0 +1,52 @@
+﻿
+@model IEnumerable<EntityLayer.Concrete.Sponsor>
+
+@{
+	ViewBag.Title = "Index";
+	Layout = "~/Views/Shared/AnaLayout.cshtml";
+}
+
+<section class="single-page-header">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h2>Sponsorlar</h2>
+				<ol class="breadcrumb header-bradcrumb">
+					<li><a href="/Ana/Index/">Ana Sayfa /</a></li>
+					<li class="active">Sponsorlar</li>
+				</ol>
+			</div>
+		</div>
+	</div>
+</section>
+<section class="counter-wrapper section-sm">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 text-center">
+				<div class="title">
+					<h2>Bizlere Destek Sağlayan Sponsorlarımız</h2>
+				</div>
+			</div>
+
+			@foreach (var item in Model)
+			{
+				<div class="col-md-4 col-sm-6 col-xs-6 text-center ">
+					<div class="counters-item">
+						<div class="media-wrapper">
+							<img src="@item.Image" style="width: 100%; height: 150px; object-fit: cover;"
+								 alt="amazing caves coverimage" class="img-fluid mb-4">
+						</div>
+						<div>
+							<span class="counter">@item.SponsorName</span>
+						</div>
+						<h3><a href="@item.SponsorWebSite" target="_blank">@item.SponsorWebSite</a></h3>
+					</div>
+				</div>
+			}
+
+		</div>
+	</div>
+</section>
+
+
+@Html.Action("Index", "Footer")

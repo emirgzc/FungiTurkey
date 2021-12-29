@@ -1,0 +1,74 @@
+﻿
+@model EntityLayer.Concrete.Activity
+
+@{
+	ViewBag.Title = "AActivityUpdate";
+	Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="col-lg-12">
+	<div class="card">
+		<div class="card-body">
+			<h4 class="card-title">Etkinlik Güncelleme</h4>
+			<div class="basic-form">
+				@using (Html.BeginForm("AActivityUpdate", "Activity", FormMethod.Post, new { enctype = "multipart/form-data" }))
+				{
+					@Html.HiddenFor(x => x.ActId)
+					<div class="form-group">
+						@Html.Label("Başlık")
+						@Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+						@Html.ValidationMessageFor(x => x.Title, "", new { @class = "text-danger" })
+					</div>
+					<div class="form-group">
+						@Html.Label("İçerik")
+						@Html.TextAreaFor(x => x.Content, 6, 20, new { @class = "form-control", @id = "editorid" })
+						@Html.ValidationMessageFor(x => x.Content, "", new { @class = "text-danger" })
+					</div>
+					<div class="form-group">
+						@Html.Label("Başlangıç Tarihi")
+						@Html.TextBoxFor(x => x.StartDate, new { @class = "form-control" })
+						@Html.ValidationMessageFor(x => x.StartDate, "", new { @class = "text-danger" })
+					</div>
+					<div class="form-group">
+						@Html.Label("Bitiş Tarihi")
+						@Html.TextBoxFor(x => x.FinishDate, new { @class = "form-control" })
+						@Html.ValidationMessageFor(x => x.FinishDate, "", new { @class = "text-danger" })
+					</div>
+					<div class="form-group">
+						@Html.Label("Son Kayıt Tarihi")
+						@Html.TextBoxFor(x => x.LastRecordDate, new { @class = "form-control" })
+						@Html.ValidationMessageFor(x => x.LastRecordDate, "", new { @class = "text-danger" })
+					</div>
+					<div class="form-group">
+						@Html.Label("Ücret")
+						@Html.TextBoxFor(x => x.Price, new { @class = "form-control" })
+						@Html.ValidationMessageFor(x => x.Price, "", new { @class = "text-danger" })
+					</div>
+					<div class="form-group">
+						@Html.Label("Yapımcı")
+						@Html.TextBoxFor(x => x.Director, new { @class = "form-control" })
+						@Html.ValidationMessageFor(x => x.Director, "", new { @class = "text-danger" })
+					</div>
+					<div class="form-group">
+						@Html.Label("Kontenjan")
+						@Html.TextBoxFor(x => x.Quota, new { @class = "form-control" })
+						@Html.ValidationMessageFor(x => x.Quota, "", new { @class = "text-danger" })
+					</div>
+					<div class="form-group">
+						<label>Resim </label>
+						<input type="file" name="Image" class="form-control">
+					</div>
+					<button type="submit" class="btn btn-dark">Güncelle</button>
+				}
+			</div>
+		</div>
+	</div>
+</div>
+
+@section Scripts{
+	<script src="~/mazer/dist/assets/vendors/ckeditor/ckeditor.js"></script>
+	<script>
+		CKEDITOR.replace("editorid")
+	</script>
+}
+

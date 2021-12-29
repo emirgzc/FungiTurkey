@@ -1,0 +1,37 @@
+﻿
+@model IEnumerable<EntityLayer.Concrete.Message>
+
+@{
+	ViewBag.Title = "MemberContactSendbox";
+	Layout = "~/Views/Shared/MemberLayout.cshtml";
+}
+
+<section class="posts section">	
+	<div class="container">
+		<table class="table table-responsive-lg">
+			<tr>
+				<th>#</th>
+				<th>Gönderen</th>
+				<th>Alıcı</th>
+				<th>Konu</th>
+				<th>Tarih</th>
+				<th>Detay</th>
+			</tr>
+			<tbody>
+				@foreach (var item in Model)
+				{
+					<tr>
+						<td>@item.MessageId</td>
+						<td><a href="/Member/MemberContactSendboxDetails/@item.MessageId">@item.SenderMail</a></td>
+						<td>@item.ReceiverMail</td>
+						<td>@item.Subject</td>
+						<td>@item.MessageDate.ToString("d MMMMM yyy")</td>
+						<td><a href="/Member/MemberContactSendboxDetails/@item.MessageId" class="btn btn-info">Detay</a></td>
+					</tr>
+				}
+			</tbody>
+		</table>
+	</div>
+</section>
+
+@Html.Action("Index", "Footer")
